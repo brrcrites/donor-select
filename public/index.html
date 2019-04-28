@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Donor Select</title>
+
+    <!-- JavaScript firebase and jQuery frameworks maintained by Google -->
+        <!-- firebase-app.js has necessary files for all firebase projects -->
+        <!-- firebase-firestore,js has the functions we need to work with firestore -->
+        <!-- jquery.min.js contains the jQuery framework we will use to modify our HTML in JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body onload="initialize()">
+    <h1>Welcome to Donor Select!</h1>
+    <!-- Dropdown menu for filtering donors by type -->
+    <b>Filter:</b>
+    <select id="filter" onchange="listDonors()">
+        <option value="any" selected="selected">Any</option>
+        <option value="kidney">Kidney</option>
+        <option value="liver">Liver</option>
+        <option value="spleen">Spleen</option>
+    </select>
+    <hr><hr>
+
+    <!-- Div that we will append matching donors to -->
+    <div id="donor-list"></div>
+    <hr>
+
+    <!-- Form for adding new donors to the system -->
+    <form id="donor-add">
+        First Name <input type="text" id="firstNameField">
+        Last Name<input type="text" id="lastNameField">
+        Latitude<input type="text" id="latField">
+        Longitude<input type="text" id="longField">
+        Kidney<input type="checkbox" id="kidneyField">
+        Liver<input type="checkbox" id="liverField">
+        Spleen<input type="checkbox" id="spleenField">
+        <button type="button" onclick="addDonor()">Add Me!</button>
+    </form>
+
+    <!-- JavaScript portions of our website -->
+        <!-- config.js just holds our secret information from firebase -->
+        <!-- script.js contains the actual javascript for our app -->
+    <script src="./config.js"></script>
+    <script src="./script.js"></script>
+
+  </body>
+</html>
